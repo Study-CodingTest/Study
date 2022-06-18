@@ -121,10 +121,10 @@ body
         <a href="https://github.com/elbica" title="Code">💻</a>
     </td>
     <td align="center">
-      <a href="https://github.com/shadowpur97">
-        <img src="https://avatars.githubusercontent.com/u/25563369?v=4" width="110px;" alt=""/><br />
+      <a href="https://github.com/SHDPR">
+        <img src="https://avatars.githubusercontent.com/u/35327930?v=4" width="110px;" alt=""/><br />
         <sub><b>박상민</b></sub></a><br />
-        <a href="https://github.com/shadowpur97" title="Code">💻</a>
+        <a href="https://github.com/SHDPR" title="Code">💻</a>
     </td>
     <td align="center">
       <a href="https://github.com/raetic">
