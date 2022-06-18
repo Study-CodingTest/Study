@@ -4,7 +4,7 @@
 - 방학 기간 동안 진행되는 **코딩 테스트 대비 문제 풀이** 스터디입니다.
 - 매 주 금요일 23:59 까지 5문제를 풀고, 코드 리뷰를 진행합니다.
     - 문제는 각자 원하는 문제 1개 + 나머지는 [tony9402 오늘의 문제](https://github.com/tony9402/baekjoon/blob/main/picked.md)에서 보충합니다.
-- 매 주 화요일 ??:?? 시에 모의 코딩테스트를 진행합니다.
+- 매 주 화요일 21:00에 모의 코딩테스트를 진행합니다.
     - Google Meet를 이용하여 실시간으로 각자 문제를 풀이합니다. (마이크 off, 카메라 off)
     - 2시간 동안 3문제를 풀이하며, 주로 기업 코딩테스트 문제나 대회 문제를 풀이합니다.
         - 문제는 미리 풀어보는 것을 방지하기 위해, 당일에 공개합니다.
@@ -16,7 +16,7 @@
 
 ## 🔸 참여 방법
 
-### 🔹 다음 주에 풀고 싶은 문제 신청 방법
+### 🔹 다음 주에 풀고 싶은 문제 신청 방법 [(✈ 문제 등록하기)](https://github.com/Study-CodingTest/Study/issues/new?assignees=&labels=&template=add-a-problem.md&title=%5B%ED%94%8C%EB%9E%AB%ED%8F%BC%5D+%EB%AC%B8%EC%A0%9C_%EC%9D%B4%EB%A6%84+%2F+%EB%82%9C%EC%9D%B4%EB%8F%84)
 - Issues에 풀고 싶은 문제를 추가해 주세요.
 
 <br>
