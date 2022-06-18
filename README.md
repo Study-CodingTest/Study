@@ -115,10 +115,10 @@ body
         <a href="https://github.com/seonpilKim" title="Code">💻</a>
     </td>
     <td align="center">
-      <a href="https://github.com/">
-        <img src="" width="110px;" alt=""/><br />
+      <a href="https://github.com/elbica">
+        <img src="https://avatars.githubusercontent.com/u/74011724?v=4" width="110px;" alt=""/><br />
         <sub><b>김소희</b></sub></a><br />
-        <a href="https://github.com/" title="Code">💻</a>
+        <a href="https://github.com/elbica" title="Code">💻</a>
     </td>
     <td align="center">
       <a href="https://github.com/shadowpur97">
