@@ -24,57 +24,51 @@ struct Node {
 	int dir;
 	int mirrors;
 
-	Node(int row, int col, int dir, int mirrors) 
+	Node(int row, int col, int dir, int mirrors)
 		: row(row), col(col), dir(dir), mirrors(mirrors) {}
 
 };
 
 void BFS() {
 	queue<Node> q;
-	
+
 	q.push(Node(src.first, src.second, -1, -1));
 	dp[src.first][src.second] = 0;
 
 	int cur = 1, next = 0;
 	while (!q.empty()) {
-		while (cur--) {
-			int row = q.front().row;
-			int col = q.front().col;
-			int dir = q.front().dir;
-			int mirrors = q.front().mirrors;
-			
-			q.pop();
-			if (mirrors > dp[row][col]) {
+		int row = q.front().row;
+		int col = q.front().col;
+		int dir = q.front().dir;
+		int mirrors = q.front().mirrors;
+
+		q.pop();
+		if (mirrors > dp[row][col]) {
+			continue;
+		}
+
+		for (int next_dir = 0; next_dir < 4; next_dir++) {
+			int next_row = row + dr[next_dir];
+			int next_col = col + dc[next_dir];
+
+			if (next_row < 0 || next_row >= H || next_col < 0 || next_col >= W) {
+				continue;
+			}
+			if (map[next_row][next_col] == WALL) {
 				continue;
 			}
 
-			for (int next_dir = 0; next_dir < 4; next_dir++) {
-				int next_row = row + dr[next_dir];
-				int next_col = col + dc[next_dir];
+			int count = mirrors;
+			if (dir != next_dir) {
+				count++;
+			}
 
-				if (next_row < 0 || next_row >= H || next_col < 0 || next_col >= W) {
-					continue;
-				}
-				if (map[next_row][next_col] == WALL) {
-					continue;
-				}
-
-				int count = mirrors;
-				if (dir != next_dir) {
-					count++;
-				}
-
-				int& cost = dp[next_row][next_col];
-				if (cost >= count) {
-					cost = count;
-					q.push(Node(next_row, next_col, next_dir, cost));
-					next++;
-				}
+			int& cost = dp[next_row][next_col];
+			if (cost >= count) {
+				cost = count;
+				q.push(Node(next_row, next_col, next_dir, cost));
 			}
 		}
-
-		cur = next;
-		next = 0;
 	}
 }
 
