@@ -32,19 +32,15 @@ int main() {
 		par[i] = i;
 	}
 
-	vector<int> g(P);
-	for (int i = 0; i < P; i++) {
-		cin >> g[i];
-	}
-
+	int g;
 	int count = 0;
-	for (int i = 0; i < P; i++) {
-		if (find(g[i]) == 0) {
+	while (P--) {
+		if (find(g) == 0) {
 			break;
 		}
 
 		count++;
-		merge(g[i] - 1, g[i]);
+		merge(g - 1, g);
 	}
 
 	cout << count;
