@@ -35,6 +35,8 @@ int main() {
 	int g;
 	int count = 0;
 	while (P--) {
+                cin >> g;
+		
 		if (find(g) == 0) {
 			break;
 		}
