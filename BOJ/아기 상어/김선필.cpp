@@ -29,11 +29,8 @@ bool compare(const Node &a, const Node &b) {
     return a.cost < b.cost;
 }
 
-Node bfs(const vector<vector<int>> &fishes, const Node &shark, const int &sharkSize) {
+Node bfs(const int &N, const vector<vector<int>> &fishes, const Node &shark, const int &sharkSize) {
     Node prey(INF, NONE, NONE);
-
-    int minCost = INF;
-    const int &N = fishes.size();
     vector<vector<bool>> visit(N, vector<bool>(N));
     visit[shark.row][shark.col] = true;
 
@@ -49,7 +46,7 @@ Node bfs(const vector<vector<int>> &fishes, const Node &shark, const int &sharkS
             if (next.row < 0 || next.col < 0 || next.row >= N || next.col >= N) {
                 continue;
             }
-            if (visit[next.row][next.col] || next.cost > minCost) {
+            if (visit[next.row][next.col] || next.cost > prey.cost) {
                 continue;
             }
 
@@ -63,7 +60,6 @@ Node bfs(const vector<vector<int>> &fishes, const Node &shark, const int &sharkS
                 q.push(next);
             } else if (fishes[next.row][next.col] < sharkSize && compare(next, prey)) {
                 prey = next;
-                minCost = min(minCost, next.cost);
             }
         }
     }
@@ -96,7 +92,7 @@ int main() {
     int move = 0;
     int eaten = 0;
     while (true) {
-        const Node prey = bfs(fishes, shark, sharkSize);
+        const Node prey = bfs(N, fishes, shark, sharkSize);
         if (prey.row == NONE) {
             break;
         }
