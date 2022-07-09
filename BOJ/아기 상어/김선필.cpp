@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <algorithm>
 
 using namespace std;
 
@@ -30,8 +29,8 @@ bool compare(const Node &a, const Node &b) {
     return a.cost < b.cost;
 }
 
-vector<Node> bfs(const vector<vector<int>> &fishes, const Node &shark, const int &sharkSize) {
-    vector<Node> prey;
+Node bfs(const vector<vector<int>> &fishes, const Node &shark, const int &sharkSize) {
+    Node prey(INF, NONE, NONE);
 
     int minCost = INF;
     const int &N = fishes.size();
@@ -62,8 +61,8 @@ vector<Node> bfs(const vector<vector<int>> &fishes, const Node &shark, const int
 
             if (fishSize == 0 || fishSize == sharkSize) {
                 q.push(next);
-            } else if (fishes[next.row][next.col] < sharkSize) {
-                prey.push_back(next);
+            } else if (fishes[next.row][next.col] < sharkSize && compare(next, prey)) {
+                prey = next;
                 minCost = min(minCost, next.cost);
             }
         }
@@ -97,17 +96,15 @@ int main() {
     int move = 0;
     int eaten = 0;
     while (true) {
-        auto prey = bfs(fishes, shark, sharkSize);
-        if (prey.empty()) {
+        const Node prey = bfs(fishes, shark, sharkSize);
+        if (prey.row == NONE) {
             break;
         }
 
-        sort(prey.begin(), prey.end(), compare);
-        auto fish = prey.front();
-        move += fish.cost;
-        fishes[fish.row][fish.col] = 0;
-        shark.row = fish.row;
-        shark.col = fish.col;
+        move += prey.cost;
+        fishes[prey.row][prey.col] = 0;
+        shark.row = prey.row;
+        shark.col = prey.col;
 
         if (++eaten == sharkSize) {
             sharkSize++;
