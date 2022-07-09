@@ -46,19 +46,19 @@ Node bfs(const int &N, const vector<vector<int>> &fishes, const Node &shark, con
             if (next.row < 0 || next.col < 0 || next.row >= N || next.col >= N) {
                 continue;
             }
-            if (visit[next.row][next.col] || next.cost > prey.cost) {
-                continue;
-            }
-
-            const int &fishSize = fishes[next.row][next.col];
-            if (fishSize > sharkSize) {
+            if (visit[next.row][next.col]) {
                 continue;
             }
             visit[next.row][next.col] = true;
 
+            const int &fishSize = fishes[next.row][next.col];
+            if (fishSize > sharkSize || !compare(next, prey)) {
+                continue;
+            }
+
             if (fishSize == 0 || fishSize == sharkSize) {
                 q.push(next);
-            } else if (fishes[next.row][next.col] < sharkSize && compare(next, prey)) {
+            } else {
                 prey = next;
             }
         }
