@@ -18,6 +18,7 @@ int main(){
   priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> dijkstra;
   int distance[N+1];
 
+  /* going to X node */
   for(int ndx = 1; ndx <= N; ndx++){
     memset(distance, 0x3f, sizeof(distance));
     distance[ndx] = 0;
@@ -46,6 +47,7 @@ int main(){
       dijkstra.pop();
     int front = distance[X];
 
+    /* returning home node */
     memset(distance, 0x3f, sizeof(distance));
     distance[X] = 0;
     dijkstra.push({0, X});
