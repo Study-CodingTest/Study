@@ -14,8 +14,7 @@ int main() {
 	}
 	for (int i = 1; i <= p; i++) {
 		int l = arr[i].first;
-		for (int j = 1; j <= d; j++) {
-			if (j - l < 0)continue;
+		for (int j = l; j <= d; j++) {
 			if (l == j) {
 				dp[j][1] = max(dp[j][1], arr[i].second);
 			}
