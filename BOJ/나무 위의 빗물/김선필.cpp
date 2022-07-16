@@ -25,8 +25,8 @@ int main() {
         }
     }
 
-    cout.precision(11);
-    cout << (double)W / leaves;
+    cout.precision(4);
+    cout << fixed << (double)W / leaves;
 
     return 0;
 }
