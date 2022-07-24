@@ -84,7 +84,7 @@ int main() {
 		}
 	}
 	int s = 0;
-	int e = 1500;
+	int e = max(n, m);
 	int mid = 0;
 	while (s <= e) {
 		mid = (s + e) / 2;
